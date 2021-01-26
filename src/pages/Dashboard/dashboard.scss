@@ -1,0 +1,131 @@
+@import '../../styles/global-colors.scss';
+
+#dashboard {
+  width: 100vw;
+  height: 100vh;
+
+  position: relative;
+  display: flex;
+
+  & .leaflet-container {
+    z-index: 5;
+  }
+
+  & .create-establishment {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+
+    z-index: 10;
+
+    width: 64px;
+    height: 64px;
+    background: $main-color;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.5s ease;
+
+    &:hover {
+      background: $color3;
+    }
+  }
+
+  & aside {
+    width: 440px;
+    background: $linear-gradient;
+    padding: 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+
+    & img {
+      border-radius: 50px;
+      width: 200px;
+      height: 200px;
+    }
+
+    & h2 {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 42px;
+      margin-top: 64px;
+    }
+
+    & p {
+      line-height: 28px;
+      margin: 24px 0px;
+    }
+
+    & .distances-pane {
+      background-color: white;
+      border-radius: 20px;
+      width: 280px;
+      height: 280px;
+      padding: 20px;
+
+      color: $main-color;
+
+      & .title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      & .row-pane {
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+    }
+
+    & footer {
+      display: flex;
+      flex-direction: column;
+      line-height: 24px;
+
+      & strong {
+        font-weight: 800;
+      }
+    }
+  }
+
+  & .map-popup {
+    & .leaflet-popup-content-wrapper {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: none;
+    }
+
+    & .leaflet-popup-content {
+      color: $main-color;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 8px 12px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & a {
+        width: 40px;
+        height: 40px;
+        background: $main-color;
+        box-shadow: 17.2868px 27.6589px 41.4884px rgba(23, 142, 166, 0.26);
+        border-radius: 12px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    & .leaflet-popup-tip-container {
+      display: none;
+    }
+  }
+}

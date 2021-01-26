@@ -36,7 +36,7 @@ function CreateEstablisment() {
   }
 
   useEffect(() => {
-    if (params) {
+    if (params.id) {
       api.get(`establishments/${params.id}`).then(
         async (response) => {
           const { data: establishment } = response;
@@ -97,7 +97,7 @@ function CreateEstablisment() {
     } else {
       try {
         await api.patch(`establishments/${params.id}`, establishment);
-        alert('Cadastro realizado com sucesso!');
+        alert('Estabelecimento atualizado com sucesso!');
         history.push('/estabelecimentos');
       } catch (error) {
         setError(error);
@@ -135,6 +135,21 @@ function CreateEstablisment() {
               />
               <SetViewOnClick />
             </MapContainer>
+            {establishmentLocation.latitude &&
+            establishmentLocation.longitude ? (
+              <footer>
+                <a
+                  className="routes-on-maps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${establishmentLocation.latitude},${establishmentLocation.longitude}`}
+                >
+                  Ver rotas no Google Maps
+                </a>
+              </footer>
+            ) : (
+              ''
+            )}
             <div className="input-block">
               <label htmlFor="address">Endereço</label>
               <AutocompletePlace

@@ -29,6 +29,20 @@
       &.create-establishment-form fieldset {
         border: 0;
 
+        & footer {
+          margin-top: -20px;
+          margin-bottom: 15px;
+          padding: 5px;
+          text-align: center;
+          background-color: $bg-color1;
+
+          & a {
+            line-height: 24px;
+            color: $color3;
+            text-decoration: none;
+          }
+        }
+
         & .input-block {
           margin-bottom: 15px;
           & label {

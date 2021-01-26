@@ -1,0 +1,123 @@
+@import '../../styles/global-colors.scss';
+
+#create-establisment {
+  display: flex;
+  background-color: $bg-color1;
+  height: 100vh;
+
+  & main {
+    flex: 1;
+
+    & form.create-establishment-form {
+      width: 600px;
+      margin: 30px auto;
+
+      background: white;
+      border: 1px solid $boder-color1;
+      border-radius: 20px;
+
+      padding: 32px 40px;
+
+      overflow: hidden;
+
+      & .leaflet-container {
+        margin-bottom: 20px;
+        border: 1px solid $boder-color1;
+        border-radius: 2px;
+      }
+
+      &.create-establishment-form fieldset {
+        border: 0;
+
+        & .input-block {
+          margin-bottom: 15px;
+          & label {
+            display: flex;
+            color: $main-color;
+            margin-bottom: 8px;
+            line-height: 24px;
+
+            & span {
+              font-size: 14px;
+              color: $color3;
+              margin-left: 24px;
+              line-height: 24px;
+            }
+          }
+
+          & input,
+          & textarea {
+            width: 100%;
+            background: $bg-color1;
+            border: 1px solid $boder-color1;
+            border-radius: 20px;
+            outline: none;
+            color: $main-color;
+          }
+
+          & input {
+            height: 30px;
+            padding: 0 16px;
+          }
+
+          & textarea {
+            min-height: 60px;
+            max-height: 120px;
+            resize: vertical;
+            padding: 16px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+
+    & button {
+      &.confirm-button {
+        width: 100%;
+        border: 0;
+        height: 50px;
+        cursor: pointer;
+        background: $main-color;
+        border-radius: 20px;
+        color: #ffffff;
+        font-weight: 800;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: background-color 0.2s;
+
+        & svg {
+          margin-right: 16px;
+        }
+
+        &:hover {
+          background: $color3;
+        }
+      }
+
+      &.delete-button {
+        margin-top: 10px;
+        width: 100%;
+        border: 0;
+        height: 50px;
+        cursor: pointer;
+        background: $delete-color;
+        border-radius: 20px;
+        color: #ffffff;
+        font-weight: 800;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: background-color 0.2s;
+
+        &:hover {
+          background: $delete-hover;
+        }
+      }
+    }
+  }
+}

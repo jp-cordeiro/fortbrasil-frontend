@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory, withRouter } from 'react-router-dom';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import api from '../../services/api';
 
 import './sign-in.scss';
@@ -9,6 +10,11 @@ function SignIn() {
 
   const [email, setEmail] = useState('admin@teste.com');
   const [password, setPassword] = useState('123456');
+  const [error, setError] = useState('');
+
+  if (sessionStorage.getItem('token')) {
+    history.push('/estabelecimentos');
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -19,19 +25,23 @@ function SignIn() {
       sessionStorage.setItem('user', JSON.stringify(data.user));
       history.push('/estabelecimentos');
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   }
 
   return (
     <div id="sign-in">
-      <div className="sign-in-image"></div>
       <div className="sign-in-form">
         <form>
+          {error ? (
+            <ErrorMessage message="Erro na validação dos dados. Verifique e tente novamente." />
+          ) : (
+            ''
+          )}
           <div className="input-block">
             <label htmlFor="email">Email</label>
             <input
-              type="text"
+              type="email"
               onChange={({ target }) => setEmail(target.value)}
               value={email}
               id="email"
@@ -52,7 +62,9 @@ function SignIn() {
             Entrar
           </button>
           <div className="sign-up-link">
-            <Link to="/sign-up">Ainda não possui usuário? Crie um aqui!</Link>
+            <Link to="/novo-usuario">
+              Ainda não possui usuário? Crie um aqui!
+            </Link>
           </div>
         </form>
       </div>

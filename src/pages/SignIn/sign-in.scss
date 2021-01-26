@@ -7,11 +7,6 @@
 
   flex-direction: row;
 
-  & .sign-in-image {
-    flex: 1;
-    background-color: black;
-  }
-
   & .sign-in-form {
     display: flex;
     flex: 1;
@@ -19,7 +14,7 @@
     justify-content: center;
     & form {
       width: 500px;
-      height: 400px;
+      height: 500px;
       background-color: white;
       border-radius: 20px;
 

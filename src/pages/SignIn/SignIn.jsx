@@ -3,6 +3,8 @@ import { Link, useHistory, withRouter } from 'react-router-dom';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import api from '../../services/api';
 
+import logo from '../../assets/logo.png';
+
 import './sign-in.scss';
 
 function SignIn() {
@@ -25,6 +27,7 @@ function SignIn() {
       sessionStorage.setItem('user', JSON.stringify(data.user));
       history.push('/estabelecimentos');
     } catch (error) {
+      console.log(error);
       setError(error);
     }
   }
@@ -33,8 +36,11 @@ function SignIn() {
     <div id="sign-in">
       <div className="sign-in-form">
         <form>
+          <div className="logo">
+            <img src={logo} />
+          </div>
           {error ? (
-            <ErrorMessage message="Erro na validação dos dados. Verifique e tente novamente." />
+            <ErrorMessage message="E-mail ou senha incorretos, tente novamente." />
           ) : (
             ''
           )}

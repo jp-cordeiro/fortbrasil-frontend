@@ -26,6 +26,17 @@ function CreateEstablisment() {
     longitude: -38.5453079,
   });
   const [error, setError] = useState();
+  const [errorMessage, setErrorMessage] = useState(
+    'Erro na validação dos dados. Verifique e tente novamente.'
+  );
+
+  function changeMessageError(error) {
+    console.log(error.message);
+    if (!error.validation) {
+      setErrorMessage(error.message);
+    }
+    setError(error);
+  }
 
   async function handleDeleteEstablishment() {
     if (window.confirm('Deseja realmente excluir esse estabelecimento?')) {
@@ -49,8 +60,8 @@ function CreateEstablisment() {
           setEstablishmentLocation(location);
           setInitialLocation(location);
         },
-        (error) => {
-          setError(error);
+        ({ response }) => {
+          changeMessageError(response);
         }
       );
     }
@@ -91,16 +102,16 @@ function CreateEstablisment() {
         await api.post('establishments', establishment);
         alert('Cadastro realizado com sucesso!');
         history.push('/estabelecimentos');
-      } catch (error) {
-        setError(error);
+      } catch ({ response }) {
+        changeMessageError(response.data);
       }
     } else {
       try {
         await api.patch(`establishments/${params.id}`, establishment);
         alert('Estabelecimento atualizado com sucesso!');
         history.push('/estabelecimentos');
-      } catch (error) {
-        setError(error);
+      } catch ({ response }) {
+        changeMessageError(response.data);
       }
     }
   }
@@ -110,11 +121,7 @@ function CreateEstablisment() {
       <Sidebar />
       <main>
         <form onSubmit={handleSubmit} className="create-establishment-form">
-          {error ? (
-            <ErrorMessage message="Erro na validação dos dados. Verifique e tente novamente." />
-          ) : (
-            ''
-          )}
+          {error ? <ErrorMessage message={errorMessage} /> : ''}
           <fieldset>
             <MapContainer
               center={[initialLocation.latitude, initialLocation.longitude]}

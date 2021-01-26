@@ -4,12 +4,15 @@ import { orderBy } from 'lodash';
 import MapConatiner from '../../components/MapContainer/MapConatiner';
 import mapMakerImg from '../../assets/establishment-home.png';
 import api from '../../services/api';
-import { FiPlus } from 'react-icons/fi';
+import { FiLogOut, FiPlus } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+
+import verifyAutheticated from '../../services/verifyAutheticated';
 
 import './dashboard.scss';
 
 export default function Dashboard() {
+  verifyAutheticated();
   const [establishments, setEstablishments] = useState([]);
   const [distances, setDistances] = useState([]);
   const [pickedLocation, setPickedLocation] = useState({});
@@ -40,6 +43,11 @@ export default function Dashboard() {
     });
   }, []);
 
+  function handleLogout() {
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
+  }
+
   return (
     <div id="dashboard">
       <aside>
@@ -69,6 +77,11 @@ export default function Dashboard() {
           <strong>Ceará</strong>
           <span>Fortaleza</span>
         </footer>
+        <div className="logout">
+          <Link to="/" title="Sair" onClick={handleLogout}>
+            <FiLogOut></FiLogOut>
+          </Link>
+        </div>
       </aside>
       <MapConatiner
         establishments={establishments}

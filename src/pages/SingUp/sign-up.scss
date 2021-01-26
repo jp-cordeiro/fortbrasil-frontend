@@ -14,13 +14,20 @@
     justify-content: center;
     & form {
       width: 500px;
-      height: 500px;
+      height: 600px;
       background-color: white;
       border-radius: 20px;
 
-      padding: 50px 30px;
+      padding: 30px 30px;
 
       overflow: hidden;
+
+      & .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
 
       & .input-block {
         margin-bottom: 10px;

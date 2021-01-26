@@ -3,6 +3,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import api from '../../services/api';
+import logo from '../../assets/logo.png';
 
 import './sign-up.scss';
 
@@ -32,6 +33,9 @@ export default function SignUp() {
     <div id="sign-up">
       <div className="sign-up-form">
         <form>
+          <div className="logo">
+            <img src={logo} />
+          </div>
           {error ? (
             <ErrorMessage message="Erro na validação dos dados. Verifique e tente novamente." />
           ) : (

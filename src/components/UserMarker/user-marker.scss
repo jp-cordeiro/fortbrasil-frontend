@@ -1,0 +1,13 @@
+@import '../../styles/global-colors.scss';
+
+.map-popup {
+  & .leaflet-popup-content-wrapper {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: none;
+  }
+
+  & .leaflet-popup-tip-container {
+    display: none;
+  }
+}

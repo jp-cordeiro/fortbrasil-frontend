@@ -4,7 +4,7 @@ Projeto para teste prático: Construção de um sistema de gerenciamento de esta
 
 ## Outras partes que compõem a aplicação
 - [BACKEND](https://github.com/jp-cordeiro/fortbrasil-backend)
-[MOBILE](https://github.com/jp-cordeiro/fortbrasil-mobile)
+- [MOBILE](https://github.com/jp-cordeiro/fortbrasil-mobile)
 
 ## Como usar
 

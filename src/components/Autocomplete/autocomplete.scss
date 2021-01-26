@@ -1,0 +1,27 @@
+@import '../../styles/global-colors.scss';
+
+.AutocompletePlace {
+  position: relative;
+}
+
+.AutocompletePlace-results {
+  position: absolute;
+  background-color: $bg-color1;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #00000011;
+  width: 100%;
+  border-radius: 10px;
+  color: $main-color;
+}
+
+.AutocompletePlace-items {
+  list-style: none;
+  border: 1px solid #00000011;
+  cursor: pointer;
+  padding: 10px 10px;
+}
+
+.AutocompletePlace-items:hover {
+  background-color: #0000ff11;
+}
